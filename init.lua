@@ -273,7 +273,7 @@ require('lazy').setup({
         },
       },
       window = {
-        auto_expand_width = false,
+        auto_expand_width = true,
       },
     },
   },
