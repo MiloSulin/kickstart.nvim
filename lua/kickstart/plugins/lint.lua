@@ -11,6 +11,11 @@ return {
         c = { 'clangtidy' },
       }
 
+      local clangtidy = require('lint').linters.clangtidy
+      clangtidy.args = {
+        '--extra-arg=-std=gnu++23',
+      }
+
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}
@@ -52,10 +57,10 @@ return {
           -- Only run the linter in buffers that you can modify in order to
           -- avoid superfluous noise, notably within the handy LSP pop-ups that
           -- describe the hovered symbol using Markdown.
-          lint.try_lint()
-          -- if vim.opt_local.modifiable:get() then
-          --   lint.try_lint()
-          -- end
+          -- lint.try_lint()
+          if vim.opt_local.modifiable:get() then
+            lint.try_lint()
+          end
         end,
       })
     end,
