@@ -9,6 +9,8 @@ return {
         -- markdown = { 'markdownlint' },
         cpp = { 'clangtidy' },
         c = { 'clangtidy' },
+        rust = { 'clippy' },
+        zig = { 'zig' },
       }
 
       local clangtidy = require('lint').linters.clangtidy
